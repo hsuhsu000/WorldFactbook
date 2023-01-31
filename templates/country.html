@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/world.css">
+        <script src="/static/world.js" defer></script>
+    </head>
+    <body>
+        <h1 id="current">{{country.name}}</h1>
+        <div><img src={{country.flag}}></div>
+        <table>
+            <tr><td>Continent</td><td>{{country.continent}}</td></tr>
+            <tr><td>Capital</td><td>{{country.capital}}</td></tr>
+            <tr><td>Capital</td><td>{{country.area}}</td></tr>
+            <tr><td>GDP</td><td>${{country.gdp|Format}}</td></tr>
+            <tr><td>Population</td><td>{{country.population|Format}}</td></tr>
+        </table>
+        <button onclick="doDelete()">Delete</button>
+        <div>
+            <a href="/country/{{country.id-1}}">Previous</a>
+            <a href="/country/{{country.id+1}}">Next</a>       
+        </div>    
+    </body>
+</html>

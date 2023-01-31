@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/world.css">
+        <script src="/static/world.js" defer></script>
+    </head>
+    <body>
+    <div class="container-fluid pl-5 pt-5">
+        <h1 class="text-center">Welcome to World Factbook</h1>  
+
+        <p>You can see all countries infromation here. You can
+        Search country by name, Sort country by Population, View continents by name, View country list, View country detail by name, Add New country
+        and Delete country</p>
+        
+        <!-- start of 1st row with add, delete, sort country -->
+        <div class="row">
+            <div class="col-md-4">  
+                <h4>Add Country</h4> 
+                <button id="newCountry">Click Here to Add New Country</button>
+                <div id="newDetails"></div>
+            </div>
+
+            <div class="col-md-4 clist">
+                <h4>Delete Country Here</h4>
+                {% for c in allCountries %}
+                <div class="cname">
+                    {{c.name}}
+                    <button class="del" style="float: right;" data-name="{{c.name}}">delete</button>
+                </div><hr>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-4">
+                <h4>Country Sort By Population</h4>
+                <div id="population"></div>
+            <div><button id="sortPopulation">Sort by Population</button></div>
+            </div>
+        </div>
+        <!-- end of 1st row with add, delete, sort country -->
+
+        <!-- start of 2nd row with continent list and search country -->
+        <div class="row">  
+            <div class="col-md-6 cl">
+                <h4>Continent List</h4>
+                <div id=continentList></div>
+            </div>
+
+            <div class="col-md-6">
+                <h4>Search Country</h4>
+                <div id="inputAndDD"> 
+                    <input id="search" placeholder="Myanmar"/>
+                    <div id="dropdown"></div>
+                </div>
+                <div id="detail"></div>
+            </div>      
+        </div>
+        <!-- end of 2nd row with continent list and search country -->
+
+        <!-- start of 3rd row with country list and country detail -->
+        <div class="row p-5 mt-5">       
+            <div class="col-md-6">
+                <h4>Country List</h4>
+                <div id="listOfCountries"></div>
+            </div>
+
+            <div class="col-md-6">
+                <div id="countryDetail"></div>
+            </div>
+        </div>
+        <!-- end of 3rd row with country list and country detail -->
+    </div>
+    </body>
+</html>
